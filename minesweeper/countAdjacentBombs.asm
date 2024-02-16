@@ -9,9 +9,9 @@ countAdjacentBombs:
 	move $s2, $a2  # column
 	
 	li $s3, 0   # count = 0
-	li $t6, SIZE #
+	li $t6, SIZE 
 	
-	subi $t0, $s1, 1 # $t0 = i
+	subi $t0, $s1, 1 # $t0 = i = row - 1
 	addi $t1, $s1, 1 # $t1 = row + 1
 		
 	loop_externo:
@@ -25,28 +25,29 @@ countAdjacentBombs:
 		
 			condicional:
 			
-			blt $t0, $zero, else_invalid # i >= 0
-			bge $t0, $t6,  else_invalid # i < SIZE
-			blt $t2, $zero, else_invalid # j >= 0
-			bge $t2, $t6,  else_invalid # j < SIZE
+			blt $t0, $zero, condicional_final # i >= 0
+			bge $t0, $t6,  condicional_final # i < SIZE
+			blt $t2, $zero, condicional_final # j >= 0
+			bge $t2, $t6,  condicional_final # j < SIZE
 			
-			mul $t5, $t0, $t6 # i * SIZE
-			add $t5, $t5, $t2 # + j
-			sll $t5, $t5, 2 #índice * 4
-			add $t5, $t5, $s0 #pegando endereço de memória de board[i][j]
-			lw $t5, 0($t5) # estou pegando o conteudo para onde o registrador ta apontando
-			bne $t5, -1, else_invalid # board[i][j] == -1
+			mul $t5, $t0, $t6 # $t5 = i * SIZE
+			add $t5, $t5, $t2 # $t5 += j
+			sll $t5, $t5, 2 # $t5 *= 2^2
+			add $t5, $t5, $s0 # pegando endereço de memória de board[i][j]
+			lw $t9, 0($t5) # estou pegando o conteudo para onde o registrador ta apontando
+			bne $t9, -1, condicional_final # board[i][j] == -1
 			
 			# count++
 			addi $s3, $s3, 1   # count = count + 1 
 			
 			condicional_final:
-			addi $t2, $t2, 1
+			addi $t2, $t2, 1 # j++
 			j loop_interno
 			
 		loop_interno_final:
-		addi $t0, $t0, 1
-		j loop_interno
+		
+		addi $t0, $t0, 1 # i++
+		j loop_externo
 		
 	loop_externo_final:
 	
