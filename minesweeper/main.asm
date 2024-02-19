@@ -23,7 +23,7 @@ main:
   begin_while:					 # while (gameActive) {
   beqz $s1, end_while
   move $a0, $s0 
-  li $a1, 1
+  li $a1, 0
   jal printBoard				 # printBoard(board,0); // Shows the board without bombs
   
   la $a0, msg_row		
