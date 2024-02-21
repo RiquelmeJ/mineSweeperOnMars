@@ -4,9 +4,11 @@
 **Professor:** Ramon Santos Nepomuceno
 # Trabalho de Arquitetura e Organização de Computadores
 
-Olá! Nesse documento, iremos explicar o funcionamento do projeto *Minesweeper* e como ocorreu a construção de cada um dos componentes.![visão geral do projeto](https://ibb.co/558d8bt "tela inicial do projeto")
-## Sobre o jogo
+Olá! Nesse documento, iremos explicar o funcionamento do projeto *Minesweeper* e como ocorreu a construção de cada um dos componentes.
 
+![Tela inicial do jogo](https://i.postimg.cc/nhZpZSFK/Imagem-do-Whats-App-de-2024-02-20-s-22-14-26-9fd64463.jpg)
+
+## Sobre o jogo
 [adicionar descrição]
 
 ## Funções
@@ -41,4 +43,22 @@ Iniciamos a função checkVictory recebendo um tabuleiro como entrada. Ela inici
 - **Retorno do resultado:** Se a condição de vitória for atendida, a função retorna 1 (indicando vitória), caso contrário, retorna 0 (indicando que o jogo ainda não foi vencido).
 - **Encerramento:** Após verificar a vitória, a função restaura o contexto e retorna para a chamada anterior.
 
+### play
+
+Iniciamos a função play recebendo o tabuleiro, a linha e a coluna como entrada. A função play calcula o índice correspondente à célula (row, column) no tabuleiro.
+
+  
+
+- **Verificação de condições iniciais:**
+-- *condicional_1:* Verifica se a célula atual já foi revelada (board[row][column] == -1). Se já foi revelada, a função retorna 0, indicando que o movimento não pode ser realizado.
+-- *condicional_1_final:* Se a célula não foi revelada, a função continua.
+
+- **Verificação de células com bombas:**
+-- *condicional_2:* Verifica se a célula atual contém uma bomba (board[row][column] == -2).
+-- *condicional_2_final:* Se a célula contém uma bomba, a função chama countAdjacentBombs para contar o número de bombas adjacentes.
+
+- **Atualização do tabuleiro:** Se não há bombas adjacentes, a função retorna 1, indicando que o movimento foi realizado com sucesso (return 1).
+Se há bombas adjacentes, a função atualiza o valor da célula para o número de bombas adjacentes (board[row][column] = countAdjacentBombs) e chama revealAdjacentCells para revelar as células adjacentes vazias.
+
+- **Encerramento:** Após as verificações e atualizações, a função restaura o contexto e retorna para a chamada anterior.
 
