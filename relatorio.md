@@ -4,12 +4,14 @@
 **Professor:** Ramon Santos Nepomuceno  
 # Trabalho de Arquitetura e Organização de Computadores
 
-Olá! Nesse documento, iremos explicar o funcionamento do projeto *Minesweeper* e como ocorreu a construção de cada um dos componentes.
+## Introdução
+Olá! Nesse documento, iremos explicar o funcionamento do projeto *Minesweeper* (ou Campo Minado) e como ocorreu a construção de cada um dos componentes.
 
 ![Tela inicial do jogo](https://i.postimg.cc/nhZpZSFK/Imagem-do-Whats-App-de-2024-02-20-s-22-14-26-9fd64463.jpg)
 
-## Sobre o jogo
-[adicionar descrição]
+## Sobre o projeto
+As regras do campo minado são convencionais: o jogador deve escolher uma posição (um conjunto de linha e coluna) a partir de um tabuleiro inicialmente coberto. Caso esse atinja uma bomba, o jogo encerra. Caso contrário, é revelada a quantidade de bombas adjacentes à célula escolhida e células vizinhas, caso haja ocorrências de células livres (sem nenhuma bomba ao seu lado).
+Inicialmente, recebemos algumas funções prontas e o código do projeto em C. Decidimos por "traduzir" a lógica das funções do projeto em C para as instruções do MIPS.
 
 ## Funções
 ### revealAdjacentCells
