@@ -1,7 +1,7 @@
-**Universidade Federal do Cariri**
-**Bacharelado em Ciência da Computação**
-**Alunos:** Helen Christine Turbano e Silva e Riquelme Jatay Ribeiro Scarcela Bezerra
-**Professor:** Ramon Santos Nepomuceno
+**Universidade Federal do Cariri**  
+**Bacharelado em Ciência da Computação**  
+**Alunos:** Helen Christine Turbano e Silva e Riquelme Jatay Ribeiro S. Bezerra  
+**Professor:** Ramon Santos Nepomuceno  
 # Trabalho de Arquitetura e Organização de Computadores
 
 Olá! Nesse documento, iremos explicar o funcionamento do projeto *Minesweeper* e como ocorreu a construção de cada um dos componentes.
